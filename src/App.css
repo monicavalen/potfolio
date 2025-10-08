@@ -181,6 +181,14 @@ body {
   align-items: center;
   margin-bottom: 1.5rem;
 }
+.avatar-img {
+  width: 120px;              /* Adjust size as needed */
+  height: 120px;             /* Keep equal width & height for perfect circle */
+  border-radius: 50%;        /* Makes the image circular */
+  object-fit: cover;         /* Ensures the image fills the circle neatly */
+  box-shadow: 0 8px 16px rgba(168, 85, 247, 0.3);
+  transition: all 0.3s ease;
+}
 
 .avatar-svg {
   filter: drop-shadow(0 8px 16px rgba(168, 85, 247, 0.3));

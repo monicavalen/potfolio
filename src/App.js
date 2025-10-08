@@ -1,5 +1,6 @@
 import './App.css';
-import Avatar from './Avatar';
+// import Avatar from './Avatar';
+import AvatarImg from './AvatarImg.png'
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
           <div className="hero-image">
             <div className="profile-card">
               <div className="profile-avatar">
-                <Avatar />
+                {/* <Avatar /> */}
+                <img src={AvatarImg} className="avatar-img"/>
               </div>
               <div className="profile-info">
                 <h3>Monica Valentina M</h3>
@@ -404,7 +406,7 @@ function App() {
                 <input type="hidden" name="_subject" value="New message from Monica's portfolio" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_next" value="https://thank-you.example.com" />
+                {/* <input type="hidden" name="_next" value="https://thank-you.example.com" /> */}
 
                 <div className="form-group">
                   <input name="name" type="text" placeholder="Your Name" required />

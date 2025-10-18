@@ -78,11 +78,11 @@ function App() {
               <div className="profile-info">
                 <h3>Monica Valentina M</h3>
                 <p>Junior Software Developer</p>
-                <div className="social-links">
-                  <a href="#" className="social-link">LinkedIn</a>
-                  <a href="#" className="social-link">Portfolio</a>
-                  <a href="mailto:monicavalentina001@gmail.com" className="social-link">Email</a>
-                </div>
+                 <div className="social-links">
+                   <a href="https://www.linkedin.com/in/monica-valentina-m-4844a6258" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+                   <a href="#" className="social-link">Portfolio</a>
+                   <a href="mailto:monicavalentina001@gmail.com" className="social-link">Email</a>
+                 </div>
               </div>
             </div>
           </div>
@@ -473,11 +473,11 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <p>&copy; 2025 Monica Valentina M. All rights reserved.</p>
-            <div className="footer-links">
-              <a href="#">LinkedIn</a>
-              <a href="#">Portfolio</a>
-              <a href="mailto:monicavalentina001@gmail.com">Email</a>
-            </div>
+             <div className="footer-links">
+               <a href="https://www.linkedin.com/in/monica-valentina-m-4844a6258" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+               <a href="#">Portfolio</a>
+               <a href="mailto:monicavalentina001@gmail.com">Email</a>
+             </div>
           </div>
         </div>
       </footer>

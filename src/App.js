@@ -1,8 +1,34 @@
 import './App.css';
 // import Avatar from './Avatar';
 import AvatarImg from './AvatarImg.png'
+import { useState } from 'react';
 
 function App() {
+  const [formStatus, setFormStatus] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('sending');
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setFormStatus('error');
+    }
+  };
   return (
     <div className="App">
       {/* Navigation */}
@@ -400,29 +426,44 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="contact-form">
-              <form action="https://formsubmit.co/monicavalentina001@gmail.com" method="POST">
-                {/* FormSubmit settings */}
-                <input type="hidden" name="_subject" value="New message from Monica's portfolio" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-                {/* <input type="hidden" name="_next" value="https://thank-you.example.com" /> */}
+             <div className="contact-form">
+               <form action="https://formsubmit.co/monicavalentina001@gmail.com" method="POST" onSubmit={handleSubmit}>
+                 {/* FormSubmit settings */}
+                 <input type="hidden" name="_subject" value="New message from Monica's portfolio" />
+                 <input type="hidden" name="_captcha" value="false" />
+                 <input type="hidden" name="_template" value="table" />
+                 <input type="hidden" name="_next" value="https://monica-portfolio.vercel.app" />
 
-                <div className="form-group">
-                  <input name="name" type="text" placeholder="Your Name" required />
-                </div>
-                <div className="form-group">
-                  <input name="email" type="email" placeholder="Your Email" required />
-                </div>
-                <div className="form-group">
-                  <input name="subject" type="text" placeholder="Subject" required />
-                </div>
-                <div className="form-group">
-                  <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">Send Message</button>
-              </form>
-            </div>
+                 <div className="form-group">
+                   <input name="name" type="text" placeholder="Your Name" required />
+                 </div>
+                 <div className="form-group">
+                   <input name="email" type="email" placeholder="Your Email" required />
+                 </div>
+                 <div className="form-group">
+                   <input name="subject" type="text" placeholder="Subject" required />
+                 </div>
+                 <div className="form-group">
+                   <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                 </div>
+                 
+                 {formStatus === 'success' && (
+                   <div className="form-message success">
+                     ✅ Message sent successfully! I'll get back to you soon.
+                   </div>
+                 )}
+                 
+                 {formStatus === 'error' && (
+                   <div className="form-message error">
+                     ❌ Sorry, there was an error sending your message. Please try again.
+                   </div>
+                 )}
+                 
+                 <button type="submit" className="btn btn-primary" disabled={formStatus === 'sending'}>
+                   {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                 </button>
+               </form>
+             </div>
           </div>
         </div>
       </section>
